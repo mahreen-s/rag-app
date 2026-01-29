@@ -1,4 +1,4 @@
--- Hybrid Search Migration for LawAI
+-- Hybrid Search Migration
 -- Run this in Supabase SQL Editor AFTER the initial setup
 -- This adds full-text search capabilities for hybrid (vector + keyword) search
 

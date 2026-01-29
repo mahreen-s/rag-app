@@ -11,10 +11,10 @@ export default function Header() {
       <div className="container mx-auto px-4 py-4 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-1.5 group">
           <span className="font-heading text-2xl text-background transition-transform group-hover:scale-105">
-            Law
+            Juridisk
           </span>
           <span className="bg-background text-primary px-1.5 py-0.5 rounded-md text-xl font-semibold transition-transform group-hover:scale-105">
-            Ai
+            AI
           </span>
         </Link>
         <nav className="flex gap-6">

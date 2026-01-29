@@ -9,7 +9,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "LawAI - Søk i Tvisteløsningsnemndas avgjørelser",
+  title: "Juridisk AI - Søk i Tvisteløsningsnemndas avgjørelser",
   description:
     "Søk og finn relevante avgjørelser fra Tvisteløsningsnemnda med AI-drevet søk",
 };

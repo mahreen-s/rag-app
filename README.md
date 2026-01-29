@@ -1,4 +1,4 @@
-# LawAI
+# Juridisk AI
 
 AI-drevet søkeapplikasjon for vedtak fra Tvisteløsningsnemnda. Last opp juridiske dokumenter og still spørsmål på naturlig språk — systemet finner relevante avgjørelser og genererer presise svar med kildehenvisninger.
 

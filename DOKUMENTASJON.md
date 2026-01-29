@@ -1,4 +1,4 @@
-# LawAI - Dokumentasjon
+# Juridisk AI - Dokumentasjon
 
 ## Innholdsfortegnelse
 
@@ -17,7 +17,7 @@
 
 ## 1. Introduksjon
 
-### Hva er LawAI?
+### Hva er Juridisk AI?
 
 Applikasjonen lar brukere laste opp vedtak fra Tvisteløsningsnemnda og stille spørsmål på naturlig språk. Systemet bruker RAG-arkitektur (Retrieval-Augmented Generation) for å finne relevante dokumenter og generere presise svar med kildehenvisninger.
 
@@ -246,7 +246,7 @@ Returnerer liste over alle opplastede dokumenter.
 Navigasjonsbar med glass-effekt som vises øverst på alle sider.
 
 **Funksjoner:**
-- LawAI-logo med stilisert tekst
+- Juridisk AI-logo med stilisert tekst
 - Navigasjonslenker til Søk og Last opp
 - Aktiv lenke-indikator (understrekning)
 - Sticky posisjonering ved scrolling
@@ -343,7 +343,7 @@ Dra-og-slipp filopplaster for PDF-filer.
 Bunntekst med ansvarsfraskrivelse.
 
 **Innhold:**
-- LawAI-merke
+- Juridisk AI-merke
 - Tekst: "Drevet av AI — ikke juridisk rådgivning"
 
 ---

@@ -1,4 +1,4 @@
--- LawAI RAG Database Setup
+-- RAG Database Setup
 -- Run this in Supabase SQL Editor: https://supabase.com/dashboard/project/YOUR_PROJECT/sql
 
 -- Step 1: Enable pgvector extension for vector similarity search
