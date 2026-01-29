@@ -1,26 +1,258 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* LawAI Brand Colors */
+  --color-navy: #0b195f;
+  --color-navy-light: #1a2c7a;
+  --color-navy-dark: #06103d;
+  --color-cream: #faf9f7;
+  --color-text-dark: #1a1a2e;
+  --color-text-medium: #374151;
+  --color-text-light: #6b7280;
+  --color-border: #e5e7eb;
+  --color-accent: #6366f1;
+  --color-accent-light: #818cf8;
+
+  /* Theme Variables */
+  --background: var(--color-cream);
+  --foreground: var(--color-text-dark);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-primary: var(--color-navy);
+  --color-primary-light: var(--color-navy-light);
+  --color-primary-dark: var(--color-navy-dark);
+  --color-accent: var(--color-accent);
+  --color-accent-light: var(--color-accent-light);
+  --color-surface: #ffffff;
+  --color-text-muted: var(--color-text-light);
+  --color-border: var(--color-border);
+  --font-sans: var(--font-inter);
+  --font-heading: Georgia, Garamond, "Times New Roman", serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  body {
+    background: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-sans), system-ui, sans-serif;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer components {
+  .font-heading {
+    font-family: Georgia, Garamond, "Times New Roman", serif;
+  }
+
+  .font-body {
+    font-family: var(--font-sans), Inter, system-ui, sans-serif;
+  }
+
+  /* Glass card */
+  .glass-card {
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 16px;
+    box-shadow:
+      0 4px 6px -1px rgba(0, 0, 0, 0.05),
+      0 10px 15px -3px rgba(0, 0, 0, 0.05);
+  }
+
+  .glass-card-hover {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .glass-card-hover:hover {
+    transform: translateY(-2px);
+    box-shadow:
+      0 8px 25px -5px rgba(11, 25, 95, 0.12),
+      0 20px 40px -10px rgba(99, 102, 241, 0.08);
+  }
+
+  /* Glass header */
+  .glass-header {
+    background: rgba(11, 25, 95, 0.92);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  /* Primary button */
+  .btn-primary {
+    background: #0b195f;
+    color: #faf9f7;
+    border-radius: 8px;
+    padding: 0.75rem 1.5rem;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 14px -2px rgba(11, 25, 95, 0.25);
+  }
+
+  .btn-primary:hover {
+    background: #1a2c7a;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px -2px rgba(11, 25, 95, 0.35);
+  }
+
+  .btn-primary:active {
+    transform: translateY(0) scale(0.98);
+  }
+
+  .btn-primary:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+  }
+
+  /* Loading spinners */
+  .spinner {
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-top-color: currentColor;
+    border-radius: 50%;
+    width: 1.25rem;
+    height: 1.25rem;
+    animation: spin 0.8s linear infinite;
+  }
+
+  .spinner-dark {
+    border: 2px solid #e5e7eb;
+    border-top-color: #0b195f;
+    border-radius: 50%;
+    width: 1.5rem;
+    height: 1.5rem;
+    animation: spin 0.8s linear infinite;
+  }
+
+  /* Search glow */
+  .search-glow:focus-within {
+    box-shadow:
+      0 0 0 3px rgba(99, 102, 241, 0.15),
+      0 8px 25px -5px rgba(11, 25, 95, 0.1);
+  }
+
+
+  /* Link styling */
+  .link-navy {
+    color: #0b195f;
+    text-decoration: none;
+  }
+
+  .link-navy:hover {
+    text-decoration: underline;
+  }
+
+  /* Prose styling for markdown answers */
+  .prose-answer {
+    line-height: 1.75;
+    color: #374151;
+  }
+
+  .prose-answer h1,
+  .prose-answer h2,
+  .prose-answer h3,
+  .prose-answer h4 {
+    font-family: Georgia, Garamond, "Times New Roman", serif;
+    color: #0b195f;
+    margin-top: 1.25em;
+    margin-bottom: 0.5em;
+    font-weight: 600;
+  }
+
+  .prose-answer h1 { font-size: 1.5em; }
+  .prose-answer h2 { font-size: 1.25em; }
+  .prose-answer h3 { font-size: 1.1em; }
+
+  .prose-answer p {
+    margin-bottom: 0.75em;
+  }
+
+  .prose-answer ul,
+  .prose-answer ol {
+    padding-left: 1.5em;
+    margin-bottom: 0.75em;
+  }
+
+  .prose-answer ul { list-style-type: disc; }
+  .prose-answer ol { list-style-type: decimal; }
+
+  .prose-answer li {
+    margin-bottom: 0.25em;
+  }
+
+  .prose-answer strong {
+    font-weight: 600;
+    color: #1a1a2e;
+  }
+
+  .prose-answer blockquote {
+    border-left: 3px solid #6366f1;
+    padding-left: 1em;
+    margin: 0.75em 0;
+    color: #6b7280;
+    font-style: italic;
+  }
+
+  .prose-answer code {
+    background: rgba(99, 102, 241, 0.08);
+    padding: 0.15em 0.3em;
+    border-radius: 4px;
+    font-size: 0.9em;
+  }
+
+  /* PDF modal */
+  .modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    z-index: 50;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    animation: fadeIn 0.2s ease-out;
+  }
+
+  .modal-content {
+    background: var(--color-cream);
+    border-radius: 16px;
+    width: 100%;
+    max-width: 56rem;
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    box-shadow:
+      0 25px 50px -12px rgba(0, 0, 0, 0.25),
+      0 0 0 1px rgba(255, 255, 255, 0.1);
+  }
+}
+
+@layer utilities {
+  .animate-fade-in {
+    animation: fadeIn 0.4s ease-out;
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
