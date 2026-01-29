@@ -1,36 +1,49 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# LawAI
 
-## Getting Started
+AI-drevet søkeapplikasjon for vedtak fra Tvisteløsningsnemnda. Last opp juridiske dokumenter og still spørsmål på naturlig språk — systemet finner relevante avgjørelser og genererer presise svar med kildehenvisninger.
 
-First, run the development server:
+## Teknologi
+
+| | |
+|---|---|
+| **Frontend** | Next.js 16, React 19, Tailwind CSS v4 |
+| **Backend** | Next.js API Routes |
+| **Database** | Supabase (PostgreSQL + pgvector) |
+| **AI** | OpenAI (gpt-5-mini, text-embedding-3-large) |
+| **Lagring** | Supabase Storage |
+
+## Hovedfunksjoner
+
+- **Hybrid søk** — kombinerer semantisk vektorsøk med nøkkelordsøk (Reciprocal Rank Fusion)
+- **AI-genererte svar** — svar basert på kontekst fra relevante vedtak, med kildehenvisninger
+- **PDF-visning** — se originalvedtaket direkte i applikasjonen
+- **Flerfilopplasting** — last opp flere PDF-er samtidig med statussporing per fil
+- **Intelligent chunking** — setningsbasert tekstoppdeling med overlapp for bedre kontekst
+
+## Kom i gang
 
 ```bash
+# Installer avhengigheter
+npm install
+
+# Kopier miljøvariabler
+cp .env.example .env.local
+# Rediger .env.local med dine nøkler
+
+# Start utviklingsserver
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Applikasjonen kjører på [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Oppsett
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+1. Opprett et [Supabase](https://supabase.com)-prosjekt
+2. Kjør `supabase-setup.sql` i SQL-editoren
+3. Kjør `supabase-hybrid-search.sql` for hybrid søk
+4. Opprett en offentlig Storage-bucket kalt `pdfs`
+5. Legg til nøkler i `.env.local` (se `.env.example`)
 
-## Learn More
+## Dokumentasjon
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Se [DOKUMENTASJON.md](DOKUMENTASJON.md) for fullstendig teknisk dokumentasjon.
