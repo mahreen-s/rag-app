@@ -9,8 +9,8 @@ import type { DocumentWithSimilarity, QueryResponse } from "@/types";
 
 const EXAMPLE_QUESTIONS = [
   "Hva er vilkårene for fortrinnsrett til utvidet stilling?",
-  "Kan arbeidsgiver nekte redusert arbeidstid?",
-  "Hva sier nemnda om midlertidig ansettelse?",
+  "Hva sier nemnda om utdaningspermisjon?",
+  "Hva er vilkårene for fleksibel arbeidstid?",
   "Hvilke rettigheter har deltidsansatte?",
 ];
 
